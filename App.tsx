@@ -56,7 +56,7 @@ const COSTS = { IMAGE: 5, VIDEO: 25 };
 const GUEST_INITIAL_CREDITS = 5;
 
 const App: React.FC = () => {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [isGuest, setIsGuest] = useState(false);
   const [guestCredits, setGuestCredits] = useState(GUEST_INITIAL_CREDITS);

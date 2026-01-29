@@ -108,13 +108,26 @@ const App: React.FC = () => {
       setIsGuest(false);
     }
 
-    const checkApiKey = async () => {
-      if (window.aistudio) {
-        const has = await window.aistudio.hasSelectedApiKey();
-        setHasApiKey(has);
-      }
-    };
-    checkApiKey();
+useEffect(() => {
+  const checkApiKey = async () => {
+    // Check if the key was injected by Vercel's build process
+    const keyExists = !!(process.env.GEMINI_API_KEY || process.env.API_KEY);
+    
+    if (keyExists) {
+      // If the environment variable exists, we are good to go
+      setHasApiKey(true);
+    } else if (window.aistudio) {
+      // Fallback for when you are still testing in AI Studio
+      const has = await window.aistudio.hasSelectedApiKey();
+      setHasApiKey(has);
+    } else {
+      // If we're on Vercel and no key is found, default to true 
+      // This prevents the blank "Key Required" screen from locking the UI
+      setHasApiKey(true); 
+    }
+  };
+  checkApiKey();
+}, []);
 
     return () => clearTimeout(timer);
   }, []);

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Studio — AI Fashion Studio & Virtual Try-On</title>
+    <meta name="title" content="Studio — AI Fashion Studio & Virtual Try-On">
+    <meta name="description" content="The world's most advanced AI Fashion Studio. Upload your garment flat-lays, apply custom graphics, and generate photorealistic virtual try-on previews with Gemini AI.">
+    <meta name="keywords" content="AI Fashion, Virtual Try-On, Fashion Design Tool, Gemini AI Fashion, Digital Apparel Studio, Fashion Mockup Generator">
+    <meta name="author" content="AI Fashion Studio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://aifashionstudio.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aifashionstudio.app/">
+    <meta property="og:title" content="Studio — AI Fashion Studio & Virtual Try-On">
+    <meta property="og:description" content="Generate high-end fashion editorial photos from simple flat-lays. Create, design, and animate your collection with professional-grade AI.">
+    <meta property="og:image" content="https://picsum.photos/seed/fashion-studio/1200/630">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://aifashionstudio.app/">
+    <meta property="twitter:title" content="Studio — AI Fashion Studio & Virtual Try-On">
+    <meta property="twitter:description" content="Generate high-end fashion editorial photos from simple flat-lays. Create, design, and animate your collection with professional-grade AI.">
+    <meta property="twitter:image" content="https://picsum.photos/seed/fashion-studio/1200/630">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AI Fashion Studio",
+      "operatingSystem": "Web",
+      "applicationCategory": "DesignApplication",
+      "description": "Virtual try-on and fashion design tool using generative AI.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'var(--background)',
+              foreground: 'var(--foreground)',
+            }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #fbfbfb;
+            --foreground: #1d1d1f;
+        }
+        .dark {
+            --background: #000000;
+            --foreground: #f5f5f7;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d1d6;
+            border-radius: 10px;
+        }
+        .dark ::webkit-scrollbar-thumb {
+            background: #3a3a3c;
+        }
+        .apple-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+        }
+        .premium-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+  }
+}
+</script>
+</head>
+<body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1>JavaScript Required</h1>
+        <p>This AI Fashion Studio requires JavaScript to function. Please enable it in your browser settings to start designing.</p>
+      </div>
+    </noscript>
+    <div id="root"></div>
+</body>
+</html>

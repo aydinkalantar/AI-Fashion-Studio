@@ -1,0 +1,7 @@
+{
+  "name": "AI Fashion Video Studio v2.0",
+  "description": "A high-end professional design tool for virtual try-on. Upload flat-lays, apply graphics, and generate photorealistic model previews using Gemini AI.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

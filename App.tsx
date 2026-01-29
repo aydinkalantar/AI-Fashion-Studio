@@ -100,32 +100,28 @@ const App: React.FC = () => {
   const canvasRef = useRef<StudioCanvasHandle>(null);
 
   // Initialization: Read session
-  useEffect(() => {
-    const timer = setTimeout(() => setShowIntro(false), 2000);
-    const savedSession = localStorage.getItem('studio_session_user');
-    if (savedSession) {
-      setCurrentUser(JSON.parse(savedSession));
-      setIsGuest(false);
-    }
-
 useEffect(() => {
   const checkApiKey = async () => {
-    // Check if the key was injected by Vercel's build process
-    const keyExists = !!(process.env.GEMINI_API_KEY || process.env.API_KEY);
-    
-    if (keyExists) {
-      // If the environment variable exists, we are good to go
+    // 1. Check if the key exists in your Vercel Environment Variables
+    // In Vite, we check 'import.meta.env' for variables starting with VITE_
+    const envKey = import.meta.env.VITE_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+    const hasEnvKey = !!envKey;
+
+    if (hasEnvKey) {
+      // If Vercel has the key, we unlock the app immediately
       setHasApiKey(true);
     } else if (window.aistudio) {
-      // Fallback for when you are still testing in AI Studio
-      const has = await window.aistudio.hasSelectedApiKey();
-      setHasApiKey(has);
+      // 2. If no env key, check if we are inside the Google AI Studio editor
+      const hasStudioKey = await window.aistudio.hasSelectedApiKey();
+      setHasApiKey(hasStudioKey);
     } else {
-      // If we're on Vercel and no key is found, default to true 
-      // This prevents the blank "Key Required" screen from locking the UI
-      setHasApiKey(true); 
+      // 3. IMPORTANT: If we are on the web and no key is found, 
+      // we still set this to 'true' so the screen isn't blank.
+      // This allows the user to at least see the UI.
+      setHasApiKey(true);
     }
   };
+
   checkApiKey();
 }, []);
 
